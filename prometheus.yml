@@ -23,8 +23,9 @@ submission:
     - defi
     - tokens
   visuals:
-    icon_url: ''
-    banner_url: ''
-    gallery_images: []
-  git_commit: ''
+    icon_url: https://github.com/jneums/easy-wallet/releases/download/v1.0.0-assets/icon-easy-wallet.webp
+    banner_url: https://github.com/jneums/easy-wallet/releases/download/v1.0.0-assets/banner-easy-wallet.webp
+    gallery_images: 
+      - https://github.com/jneums/easy-wallet/releases/download/v1.0.0-assets/banner-easy-wallet.webp
+  git_commit: eb8ac7cd925052d0f5ab9baac5e1adb9da481f95
   wasm_path: .dfx/local/canisters/my_mcp_server/my_mcp_server.wasm

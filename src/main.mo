@@ -124,7 +124,7 @@ shared ({ caller = deployer }) persistent actor class McpServer(
     serverInfo = {
       name = "io.github.jneums.easy-wallet";
       title = "Easy Wallet";
-      version = "0.1.0";
+      version = "0.1.1";
     };
     resources = resources;
     resourceReader = func(uri) {

@@ -73,10 +73,9 @@ module {
         var symbol : ?Text = null;
         var decimals : ?Nat8 = null;
         var fee : ?Nat = null;
-        let metadataFields = Buffer.Buffer<(Text, Text)>(metadata.size());
 
         for ((key, value) in metadata.vals()) {
-          let textValue = switch (value) {
+          switch (value) {
             case (#Nat(n)) {
               // Check for specific fields
               if (key == "icrc1:decimals" or key == "decimals") {
@@ -84,33 +83,21 @@ module {
               } else if (key == "icrc1:fee" or key == "fee") {
                 fee := ?n;
               };
-              Nat.toText(n);
-            };
-            case (#Int(i)) {
-              debug_show (i);
             };
             case (#Text(t)) {
-              // Check for specific fields
+              // Check for specific fields (skip logo - it's huge base64 data)
               if (key == "icrc1:name" or key == "name") {
                 name := ?t;
               } else if (key == "icrc1:symbol" or key == "symbol") {
                 symbol := ?t;
               };
-              t;
             };
-            case (#Blob(b)) {
-              "0x" # debug_show (b);
-            };
+            case _ {}; // Ignore Int and Blob types
           };
-
-          metadataFields.add((key, textValue));
         };
 
-        // Build the response with all available fields
-        let metadataArr = Buffer.toArray(metadataFields);
-        let metadataJson = Json.obj(Array.map<(Text, Text), (Text, Json.Json)>(metadataArr, func((k, v)) { (k, Json.str(v)) }));
-
-        let responseFields = Buffer.Buffer<(Text, Json.Json)>(5);
+        // Build clean response with only essential fields
+        let responseFields = Buffer.Buffer<(Text, Json.Json)>(4);
 
         switch (name) {
           case (?n) { responseFields.add(("name", Json.str(n))) };
@@ -137,8 +124,6 @@ module {
           case (?f) { responseFields.add(("fee", Json.str(Nat.toText(f)))) };
           case null {};
         };
-
-        responseFields.add(("metadata", metadataJson));
 
         let structuredPayload = Json.obj(Buffer.toArray(responseFields));
 
