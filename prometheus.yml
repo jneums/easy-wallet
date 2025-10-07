@@ -27,5 +27,5 @@ submission:
     banner_url: https://github.com/jneums/easy-wallet/releases/download/v1.0.0-assets/banner-easy-wallet.webp
     gallery_images: 
       - https://github.com/jneums/easy-wallet/releases/download/v1.0.0-assets/banner-easy-wallet.webp
-  git_commit: eb8ac7cd925052d0f5ab9baac5e1adb9da481f95
+  git_commit: 900444b1564194e2718984b675ac3051c757f0ba
   wasm_path: .dfx/local/canisters/my_mcp_server/my_mcp_server.wasm
