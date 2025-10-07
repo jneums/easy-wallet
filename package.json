@@ -1,0 +1,33 @@
+{
+  "name": "wallet-mcp-server",
+  "version": "1.0.0",
+  "description": "A stateless, non-custodial Wallet MCP Server that provides essential wallet-related tools for AI agents on the Internet Computer. Acts as a secure proxy for ICRC token balance queries and transfers using the ICRC-2 allowance model.",
+  "scripts": {
+    "start": "dfx start --background",
+    "stop": "dfx stop",
+    "deploy": "dfx deploy",
+    "deploy:ic": "dfx deploy --network ic",
+    "mops:install": "mops install",
+    "inspector": "mcp-inspector",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app-store": "app-store-cli",
+    "auth": "auth-cli"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/inspector": "^0.16.5",
+    "@prometheus-protocol/app-store-cli": "^1.5.3",
+    "@prometheus-protocol/auth-cli": "^1.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "motoko",
+    "mcp",
+    "prometheus-protocol",
+    "dfinity",
+    "internet-computer"
+  ],
+  "author": "",
+  "license": "MIT"
+}

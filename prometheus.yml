@@ -1,0 +1,30 @@
+# Prometheus Application Manifest
+# This is the permanent, unique identifier for your application.
+namespace: io.github.jneums.easy-wallet
+
+# This section contains all data for a specific version. This entire package will be submitted for review and locked to the audit of this version.
+# deployment_type: 'global' (shared infrastructure, recommended) or 'provisioned' (dedicated resources)
+submission:
+  name: Easy Wallet
+  description: Stateless wallet proxy for AI agents. Check balances, transfer tokens, and get token metadata for any ICRC token.
+  publisher: Atlas Labs
+  category: Finance
+  deployment_type: global
+  repo_url: https://github.com/jneums/easy-wallet
+  mcp_path: /mcp
+  why_this_app: AI agents need a simple, secure way to interact with user wallets. Easy Wallet provides essential wallet operations using ICRC standards and user-controlled allowances.
+  key_features:
+    - Check token balances for authenticated users
+    - Transfer tokens using ICRC-2 allowances
+    - Get metadata for any ICRC-1 token
+  tags:
+    - wallet
+    - icrc
+    - defi
+    - tokens
+  visuals:
+    icon_url: ''
+    banner_url: ''
+    gallery_images: []
+  git_commit: ''
+  wasm_path: .dfx/local/canisters/my_mcp_server/my_mcp_server.wasm
