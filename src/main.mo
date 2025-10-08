@@ -31,7 +31,6 @@ import IC "mo:ic";
 // Import wallet tools
 import WalletGetBalance "tools/wallet_get_balance";
 import WalletTransfer "tools/wallet_transfer";
-import WalletGetTokenMetadata "tools/wallet_get_token_metadata";
 
 shared ({ caller = deployer }) persistent actor class McpServer(
   args : ?{
@@ -114,7 +113,6 @@ shared ({ caller = deployer }) persistent actor class McpServer(
   transient let tools : [McpTypes.Tool] = [
     WalletGetBalance.config(),
     WalletTransfer.config(Principal.fromActor(self)),
-    WalletGetTokenMetadata.config(),
   ];
 
   // --- 3. CONFIGURE THE SDK ---
@@ -124,7 +122,7 @@ shared ({ caller = deployer }) persistent actor class McpServer(
     serverInfo = {
       name = "io.github.jneums.easy-wallet";
       title = "Easy Wallet";
-      version = "0.1.1";
+      version = "0.2.0";
     };
     resources = resources;
     resourceReader = func(uri) {
@@ -134,7 +132,6 @@ shared ({ caller = deployer }) persistent actor class McpServer(
     toolImplementations = [
       ("wallet_get_balance", WalletGetBalance.handle()),
       ("wallet_transfer", WalletTransfer.handle(Principal.fromActor(self))),
-      ("wallet_get_token_metadata", WalletGetTokenMetadata.handle()),
     ];
     beacon = beaconContext;
   };
